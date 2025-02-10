@@ -16,14 +16,26 @@ function convertToRoman(num) {
   ];
 	
   let result = "";
-  for (let [symbol, value] of romanSymbols) {
-    while (num >= value) {
-      result += symbol;
-      num -= value;
-    }
-  }
 
-  return result;
+	for(let i=0; i<romanSymbols.length; i++){
+		let symbol=romanSymbols[i][0];
+		let value=romanSymbols[i][1];
+
+		while(num>=value){
+			num=num-value; //reduce value
+			result=result+symbol;
+		}
+		
+	}
+	return result;
+	
+  // for (let [symbol, value] of romanSymbols) {
+  //   while (num >= value) {
+  //     result += symbol;
+  //     num -= value;
+  //   }
+  // }
+//   return result;
 }
 // do not edit below this line
 module.exports = convertToRoman
